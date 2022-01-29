@@ -12,7 +12,7 @@ const money = [
 
 function checkCashRegister(price, cash, cid) {
   let status = ''
-  let change = cash - price
+  let changeNeeded = cash - price
   // console.log(change)
   let total = 0
 
@@ -24,11 +24,11 @@ function checkCashRegister(price, cash, cid) {
   total = total.toFixed(2)
 
   // check to see if money in draw is less than change due
-  if (change > total) {
+  if (changeNeeded > total) {
     return { status: 'INSUFFICIENT_FUNDS', change: [] }
   }
   // check to see if money in draw is same as change
-  if (change == total) {
+  if (changeNeeded == total) {
     return { status: 'CLOSED', change: cid }
   }
 }
