@@ -11,7 +11,8 @@ const money = [
 ]
 
 function checkCashRegister(price, cash, cid) {
-  let change = price - cash
+  let status = ''
+  let change = cash - price
 
   return change
 }
