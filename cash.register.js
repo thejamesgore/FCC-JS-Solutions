@@ -13,24 +13,32 @@ const money = [
 function checkCashRegister(price, cash, cid) {
   let status = ''
   let changeNeeded = cash - price
-  // console.log(change)
+  let change = []
   let total = 0
 
-  // find total amount of money in draw by iterating over all monetary values
+  // find total amount of money in draw by iterating over all values
   for (let i = 0; i < cid.length; i++) {
     total = total + cid[i][1]
   }
-  // weird decimal with javaScript round to 2 decimal places
-  total = total.toFixed(2)
+  total = total.toFixed(2) // weird recursive decimal with javaScript so round to 2 decimal places
 
-  // check to see if money in draw is less than change due
-  if (changeNeeded > total) {
-    return { status: 'INSUFFICIENT_FUNDS', change: [] }
+  // if there is enough money in the draw return the change
+  if (changeNeeded < total) {
+    // return change
+    // iterate of money in draw
+    // count the denomination and add it to the change array while subtracting from changeNeeded
   }
+
   // check to see if money in draw is same as change
   if (changeNeeded == total) {
     return { status: 'CLOSED', change: cid }
   }
+  // check to see if money in draw is less than change due
+  if (changeNeeded > total) {
+    return { status: 'INSUFFICIENT_FUNDS', change: [] }
+  }
+
+  // END OF MAIN FUNCTION
 }
 
 checkCashRegister(19.5, 20, [
